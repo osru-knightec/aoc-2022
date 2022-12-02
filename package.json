@@ -7,7 +7,8 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "day1": "ts-node day-1/day1.ts",
+    "day1": "ts-node day1/day1.ts",
+    "day2": "ts-node day2/day2.ts",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts ."
   },
   "dependencies": {},

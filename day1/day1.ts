@@ -50,7 +50,7 @@ const fetchTop3 = (elfSum: number[]) => {
 };
 
 const day1 = () => {
-  const data = readFileSync('day-1/day1-input', 'utf8');
+  const data = readFileSync('day1/day1-input', 'utf8');
 
   /** Part 1 */
   const elfInventory: string[][] = parseInputToArray(data);
