@@ -7,13 +7,13 @@ const day6 = () => {
   const part1 = input.split('').reduce(
     ({ acc, i }, curr, index) => {
       if (
-        index > 3 &&
+        index > 4 &&
         !acc.split('').find((c) => acc.lastIndexOf(c) !== acc.indexOf(c))
       ) {
         return { acc, i };
       }
       return {
-        acc: acc.length < 4 ? acc + curr : acc.substring(1) + curr,
+        acc: index < 4 ? acc + curr : acc.substring(1) + curr,
         i: index + 1,
       };
     },
