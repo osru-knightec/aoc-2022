@@ -10,7 +10,7 @@ const part1 = () => {
   const startPos = { x: 0, y: 4 };
   const head = { x: 0, y: 4 },
     tail = { x: 0, y: 4 };
-  const input = readFileSync('day9/day9-input', 'utf8');
+  const input = readFileSync('day09/day9-input', 'utf8');
 
   input.split('\n').forEach((move) => {
     const [direction, distance] = move.split(' ');

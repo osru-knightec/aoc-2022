@@ -8,7 +8,7 @@ const dummyData = `2-4,6-8
 2-6,4-8`;
 
 const day4 = () => {
-  const data = readFileSync('day4/day4-input', 'utf8').trimEnd();
+  const data = readFileSync('day04/day4-input', 'utf8').trimEnd();
 
   /** Part 1 */
   const fullOverlaps = data

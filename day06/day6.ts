@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 
 const day6 = () => {
-  const input = readFileSync('day6/day6-input', 'utf8');
+  const input = readFileSync('day06/day6-input', 'utf8');
 
   /** Part 1 */
   const part1 = input.split('').reduce(

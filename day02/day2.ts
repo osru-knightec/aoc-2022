@@ -29,7 +29,7 @@ const parseMoveToNumber = (move: string): number => {
 };
 
 const day2 = () => {
-  const data = readFileSync('day2/day2-input', 'utf8').trimEnd();
+  const data = readFileSync('day02/day2-input', 'utf8').trimEnd();
 
   /** Part 1 */
   const games: Game[] = data.split('\n').map((line) => {

@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 
 const day5 = () => {
-  const input = readFileSync('day5/day5-input', 'utf8');
+  const input = readFileSync('day05/day5-input', 'utf8');
   const inputParts = input.split('\n\n');
 
   const crateLines = inputParts[0].split('\n');

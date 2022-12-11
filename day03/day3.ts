@@ -7,7 +7,7 @@ ttgJtRGJQctTZtZT
 CrZsJsPPZsGzwwsLwLmpwMDw`;
 
 const day3 = () => {
-  const data = readFileSync('day3/day3-input', 'utf8').trimEnd();
+  const data = readFileSync('day03/day3-input', 'utf8').trimEnd();
 
   /** Part 1 */
   const part1 = data

@@ -12,7 +12,7 @@ const sumSizes = (dir: any) => {
 };
 
 const day7 = () => {
-  const input = readFileSync('day7/day7-input', 'utf8');
+  const input = readFileSync('day07/day7-input', 'utf8');
 
   /** Part 1 */
   const sizes: any = { '/': 0 };

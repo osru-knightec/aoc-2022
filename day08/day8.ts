@@ -1,7 +1,7 @@
 import { readFileSync } from 'fs';
 
 const day8 = () => {
-  const input = readFileSync('day8/day8-input', 'utf8');
+  const input = readFileSync('day08/day8-input', 'utf8');
 
   const visibleTrees = input
     .split('\n')
