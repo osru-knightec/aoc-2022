@@ -19,10 +19,14 @@
     "day10": "ts-node day10/day10.ts",
     "day11": "ts-node day11/day11.ts",
     "day12": "ts-node day12/day12.ts",
+    "day13": "ts-node day13/day13.ts",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts ."
   },
-  "dependencies": {},
+  "dependencies": {
+    "lodash": "^4.17.21"
+  },
   "devDependencies": {
+    "@types/lodash": "^4.14.191",
     "@types/node": "^18.11.10",
     "@typescript-eslint/eslint-plugin": "^5.45.0",
     "@typescript-eslint/parser": "^5.45.0",
