@@ -140,46 +140,62 @@ class WeightedGraph {
   }
 }
 
-
 // Compare if char a is bigger than char b
-const charComp = (a:string, b:string) => {
-  console.log(a.charCodeAt(0), b.charCodeAt(0), a.charCodeAt(0) - b.charCodeAt(0) + 1)
-  return a.charCodeAt(0) - b.charCodeAt(0) + 1;
-}
-
+const charComp = (a: string, b: string) => {
+  if (b === 'S') b = 'a';
+  if (b === 'E') b = 'z';
+  return a.charCodeAt(0) - b.charCodeAt(0) + 2 > 0;
+};
 
 const day12 = () => {
-  const input = readFileSync('day12/day12-input', 'utf8').split('\n').map((line) => line.replace(/\n|\r/g, '').split(''));
-  let start = "";
-  let end = "";
-  console.log(input)
+  const input = readFileSync('day12/day12-input', 'utf8')
+    .split('\n')
+    .map((line) => line.replace(/\n|\r/g, '').split(''));
+  let start = '';
+  const startPart2: string[] = [];
+  let end = '';
+
   const graph = new WeightedGraph();
   input.map((row, rowI) => {
     row.map((col, colI) => {
       graph.addVertex(`${rowI}-${colI}`);
-      if (col === 'S'){
+      if (col === 'S') {
         start = `${rowI}-${colI}`;
         col = 'a';
+        startPart2.push(`${rowI}-${colI}`);
       }
       if (col === 'E') {
         end = `${rowI}-${colI}`;
         col = 'z';
       }
-      if (input[rowI-1] && charComp(col, input[rowI-1][colI])) {
-        graph.addEdge(`${rowI}-${colI}`, `${rowI-1}-${colI}`, 1);
+      if (col === 'a') {
+        startPart2.push(`${rowI}-${colI}`);
       }
-      if (input[rowI+1] && charComp(col, input[rowI+1][colI])) {
-        graph.addEdge(`${rowI}-${colI}`, `${rowI+1}-${colI}`, 1);
+      if (input[rowI - 1] && charComp(col, input[rowI - 1][colI])) {
+        graph.addEdge(`${rowI}-${colI}`, `${rowI - 1}-${colI}`, 1);
       }
-      if (input[rowI][colI-1] && charComp(col, input[rowI][colI-1])) {
-        graph.addEdge(`${rowI}-${colI}`, `${rowI}-${colI-1}`, 1);
+      if (input[rowI + 1] && charComp(col, input[rowI + 1][colI])) {
+        graph.addEdge(`${rowI}-${colI}`, `${rowI + 1}-${colI}`, 1);
       }
-      if (input[rowI][colI+1] && charComp(col, input[rowI][colI+1])) {
-        graph.addEdge(`${rowI}-${colI}`, `${rowI}-${colI+1}`, 1);
+      if (input[rowI][colI - 1] && charComp(col, input[rowI][colI - 1])) {
+        graph.addEdge(`${rowI}-${colI}`, `${rowI}-${colI - 1}`, 1);
+      }
+      if (input[rowI][colI + 1] && charComp(col, input[rowI][colI + 1])) {
+        graph.addEdge(`${rowI}-${colI}`, `${rowI}-${colI + 1}`, 1);
       }
     });
-  })
+  });
 
-  console.log(start, end, graph.adjacencyList, graph.Dijkstra(start, end));
-}
+  // Part 1
+  console.log('Part 1: ', graph.Dijkstra(start, end).length - 1);
+
+  // Part 2
+  console.log(
+    'Part 2: ',
+    startPart2.reduce((acc, curr) => {
+      const currDijk = graph.Dijkstra(curr, end).length - 1 || Infinity; // if no path, set to infinity
+      return acc < currDijk ? acc : currDijk;
+    }, 350),
+  );
+};
 day12();
