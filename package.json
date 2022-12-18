@@ -23,6 +23,7 @@
     "day14": "ts-node day14/day14.ts",
     "day15": "ts-node day15/day15.ts",
     "day16": "ts-node day16/index.ts",
+    "day17": "ts-node day17/index.ts",
     "lint": "eslint --ignore-path .eslintignore --ext .js,.ts ."
   },
   "dependencies": {
