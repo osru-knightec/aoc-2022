@@ -145,7 +145,7 @@ const part1 = async () => {
   let currRock = Object.assign({}, rocks[currRockIndex]);
   let resting = false;
 
-  const secLength = input.length * rocks.length * 7;
+  const secLength = input.length * rocks.length;
   for (let i = 0; currRockIndex !== secLength; i++) {
     if (resting) {
       // Place rock in board
@@ -208,7 +208,7 @@ const part1 = async () => {
 const part2 = async () => {
   let seqTotal = 0;
   let spareHeight = 0;
-  const tries = 6;
+  const tries = 100;
   for (let j = 1; j <= 10000; j++) {
     seqTotal = 0;
     spareHeight = 0;
@@ -228,9 +228,9 @@ const part2 = async () => {
       let resting = false;
       let slicedHeight = 0;
       let seqHeight = 0;
-      let secLength = input.length * j * y;
+      let secLength = rocks.length * j * y;
       if (y === tries) {
-        secLength = 1000000000000 % (input.length * j * y);
+        secLength = 1000000000000 % secLength;
       }
 
       for (let i = 0; currRockIndex !== secLength; i++) {
@@ -321,7 +321,7 @@ const part2 = async () => {
       } else {
         spareHeight = seqHeight;
       }
-      //printBoard(board, currRock);
+      printBoard(board, currRock);
     }
     if (
       patternItem
